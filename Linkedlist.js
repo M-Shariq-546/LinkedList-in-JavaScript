@@ -12,14 +12,14 @@ class LinkedList{
         this.length = 0;
     }
     isEmpty(){
-        return (this.length === 0)
+        return (this.length === 0);
     }
     insertAtBegin(value){
         if(this.head == null)
         {
             this.head = value;
         }
-        let temp = new Node(value);
+        var temp = new Node(value);
         this.head = temp;
         this.length++;
     }
@@ -30,12 +30,12 @@ class LinkedList{
             this.insertAtBegin(value);
         }
         else{
-            let temp = this.head;
+            var temp = this.head;
             while(temp.next != null)
             {
                 temp = temp.next;
             }
-            let t1 = new Node(value);
+            var t1 = new Node(value);
             temp.next = t1;
             this.length++;
         }
@@ -65,7 +65,7 @@ class LinkedList{
             this.head = null;
         }
         else{
-            let temp = this.head;
+            var temp = this.head;
             while(temp.next != null)
             {
                 temp = temp.next;
@@ -87,7 +87,7 @@ class LinkedList{
     getLastValue(){
         if(!this.isEmpty())
         {
-            let temp = this.head;
+            var temp = this.head;
             while(temp.next != null)
             {
                 temp = temp.next;
@@ -96,14 +96,13 @@ class LinkedList{
         }
     }
     printAll(){
-        let temp = this.head;
-        let str = "";
-        while(temp)
-        {
-            str+=(temp.data + "\t" );
+        var temp = this.head;
+        var str = "";
+        while(temp){
+            str += (temp.data + "->");
             temp = temp.next;
         }
-        console.log(str + "\t");
+        console.log(str+"NULL\n");
     }
 };
 
@@ -111,14 +110,18 @@ class LinkedList{
 
 //Imaginary Main
 l1 = new LinkedList();
-l1.insertAtLast(5);
+console.log("Empty ? : " + l1.isEmpty());
 l1.insertAtBegin(1);
-l1.insertAtBegin(2);
-l1.insertAtBegin(3);
-l1.insertAtBegin(4);
-l1.insertAtBegin(9);
-l1.removeFromLast();
+l1.insertAtLast(5);
+l1.insertAtLast(2);
+l1.insertAtLast(3);
+l1.insertAtLast(4);
+l1.insertAtLast(9);
 l1.printAll();
-console.log("Length : " + l1.Lenght());
+console.log("Length with all Elements : " + l1.Lenght());
 console.log("head : " + l1.getFirstvalue());
 console.log("Tail : " + l1.getLastValue());
+console.log("Empty ? : " + l1.isEmpty());
+l1.removeFromLast();
+l1.printAll();
+console.log("Length after Removal Element : " + l1.Lenght());
